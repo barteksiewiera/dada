@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	
+		<script type="text/javascript">
+			function calculateBmi() {
+				var weight = document.bmiForm.weight.value
+				var height = document.bmiForm.height.value
+				if(weight > 0 && height > 0){	
+					var finalBmi = weight/(height/100*height/100)
+					document.bmiForm.bmi.value = finalBmi
+					if(finalBmi < 18.5){
+						document.bmiForm.meaning.value = "poniżej normy"
+					}
+					if(finalBmi > 18.5 && finalBmi < 25){
+						document.bmiForm.meaning.value = "w granicach normy"
+					}
+					if(finalBmi > 25){
+						document.bmiForm.meaning.value = "powyżej normy"
+					}
+				}
+				else{
+					alert("Uzupełnij wszystkie pola poprawnie")
+				}
+			}
+		</script>
+	</head>
+	<body>
+
+		<center><form name="bmiForm">
+			Waga(kg): <input type="text" name="weight" size="10"><br /><p></p>
+			Wzrost(cm): <input type="text" name="height" size="10"><br /><p></p>
+			<input type="button" value="Licz BMI" onClick="calculateBmi()"><br /><p></p>
+			BMI: <input type="text" name="bmi" size="10"><br /><p></p>
+			Twój wskaźnik jest: <input type="text" name="meaning" size="25"><br /><p></p>
+			<input type="reset" value="Reset" />
+        </center>
+		</form>
+	</body>
+</html>
